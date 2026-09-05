@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-class SumOfDigits
+class ReverseaNumber
 {
 
     public static void main(String[] args)
@@ -10,7 +10,7 @@ class SumOfDigits
         System.out.println("Enter a number : ");
         int num = sc.nextInt(); //527
 
-        int sum = 0;
+        int reverse = 0;
 
         // while(num != 0)
         // {
@@ -19,14 +19,16 @@ class SumOfDigits
         //     num /= 10; //52
         // }
 
+        System.out.println("Before reversing : " + num);
+
         // Using for loop.
         for(num = num; num != 0; num /= 10)
         {
             int digit = num % 10;
-            sum = sum + digit;
+            reverse = reverse * 10 + digit;
         }
 
-        System.out.println("Sum of digits : " + sum);
+        System.out.println("After reversing : " + reverse);
 
     }
 }

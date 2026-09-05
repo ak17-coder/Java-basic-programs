@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-class SumOfDigits
+class ProdOfDigits
 {
 
     public static void main(String[] args)
@@ -10,7 +10,7 @@ class SumOfDigits
         System.out.println("Enter a number : ");
         int num = sc.nextInt(); //527
 
-        int sum = 0;
+        int prod = 1;
 
         // while(num != 0)
         // {
@@ -23,10 +23,10 @@ class SumOfDigits
         for(num = num; num != 0; num /= 10)
         {
             int digit = num % 10;
-            sum = sum + digit;
+            prod = prod * digit;
         }
 
-        System.out.println("Sum of digits : " + sum);
+        System.out.println("Product of digits : " + prod);
 
     }
 }
