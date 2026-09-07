@@ -1,31 +1,27 @@
-import java.util.Scanner;
 
 class NestedLoops
 {
 
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number: ");
-        int num = sc.nextInt();
-        int original = num;
-        int res = 0;
-
-        while (num > 0)
+        for (int index = 1; index <= 3; index ++)
         {
-            int digit = num % 10;
-            res = res * 10 + digit;
-            num /= 10;
+            for (int loop1 = 1; loop1 <= 3; loop1++)
+            {
+                System.out.print( "(" + index + " , " + loop1 + ")" + " ");
+            }
+            System.out.println();
         }
 
-        if(original == res)
-        {
-            System.out.println("Palindrome");
-        }
+        System.out.println();
 
-        else
+        for (int index = 1; index <= 1; index ++)
         {
-            System.out.println("Not Palindrome");
+            for (int loop1 = 1; loop1 <= 3; loop1++)
+            {
+                System.out.print("*" + " ");
+            }
+            System.out.println();
         }
     }
 
