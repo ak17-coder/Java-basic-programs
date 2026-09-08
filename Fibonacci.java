@@ -1,35 +1,23 @@
 import java.util.Scanner;
 
-class Fibonacci
+public class Fibonacci
 {
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number : ");
+        System.out.println("Enter the position :");
         int num = sc.nextInt();
-        int sum = 0;
+
         int a = 0;
         int b = 1;
+        int c;
 
-        // for (int i = 1; i <= num; i++)
-        // {
-        //     System.out.print(a + " ");
-        //     sum = a + b;
-        //     a = b;
-        //     b = sum;
-
-        // }
-
-        int i = 1;
-        do
+        for(int i = 0; i <= num; i++)
         {
             System.out.print(a + " ");
-            sum = a + b;
+            c = a + b;
             a = b;
-            b = sum;
-            i++;
-        }while(i <= num);
-
+            b = c;
+        }
     }
 }
-
