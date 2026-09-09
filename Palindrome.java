@@ -1,32 +1,35 @@
 import java.util.Scanner;
 
-class Palindrome
+public class Palindrome
 {
-
-    public static void main(String[] args)
+    void palindrome(int num)
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number: ");
-        int num = sc.nextInt();
+        int reversed = 0;
         int original = num;
-        int res = 0;
-
-        while (num > 0)
+        while(num != 0)
         {
             int digit = num % 10;
-            res = res * 10 + digit;
+            reversed = reversed * 10 + digit;
             num /= 10;
         }
-
-        if(original == res)
+        if(original == reversed)
         {
             System.out.println("Palindrome");
         }
-
         else
         {
             System.out.println("Not Palindrome");
         }
     }
 
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number : ");
+        int num = sc.nextInt();
+
+        // countDigits(num);
+        Palindrome p = new Palindrome();
+        p.palindrome(num);
+    }
 }

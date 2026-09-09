@@ -1,36 +1,26 @@
-
 import java.util.Scanner;
 
-class CountDigits
+public class CountDigits
 {
-
-    public static void main(String[] args)
-        {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number: ");
-        int num = sc.nextInt();
-        // String num = sc.next();
-        // String num = sc.next();
+    void countDigits(int num)
+    {
         int count = 0;
-
-        e
+        while(num != 0)
+        {
             num /= 10;
-            coun)  
-
-        // for(int i = ;i <= num.length()-1; i++)
-        // {
-        //     char ch = num.charAt(i);
-        //     count++;
-
-        // } }
-
-        // for(int i = ;i <= num.length()-1; i++)
-        // {
-        //     char ch = num.charAt(i);
-        //     count++;
-
-        // }
+            count++;
+        }
         System.out.println("Count is : " + count);
     }
 
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number : ");
+        int num = sc.nextInt();
+
+        // countDigits(num);
+        CountDigits cd = new CountDigits();
+        cd.countDigits(num);
+    }
 }
