@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class FirstMatch10
+{
+
+    static void index(int []arr,int target)
+    {
+        boolean found = false;
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i] == target)
+            {
+                System.out.println("Found at index " + i);
+                found = true;
+                break;
+            }
+        }
+        if(!found)
+            System.out.println("Not found");
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the target : ");
+        int target = sc.nextInt();
+
+        int []arr = {10, 20, 30, 40};
+        index(arr,target);
+    }
+}
