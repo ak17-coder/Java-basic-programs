@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Octal
+public class Decimal
 {
     public static void main(String[] args)
     {
@@ -8,30 +8,30 @@ public class Octal
         System.out.println("Enter a number");
         String num = sc.next(); // 127 is a word.
 
-        boolean octal = false; // assume that number is octal.
+        boolean decimal = true;
 
         for(int i = 0; i <= num.length() - 1; i++)
         {
 
             char ch = num.charAt(i);
-            if(ch >= '0' && ch <= '7')
+            if((ch < '0' || ch > '9'))
             {
-                octal = true;
+                decimal = false;
+            }`
+
+            else
+            {
+                decimal = true;
+            }
+
+            if(decimal)
+            {
+                System.out.println(ch + " --> Decimal and Radix = 10");
             }
 
             else
             {
-                octal = false;
-            }
-
-            if(octal)
-            {
-                System.out.println(ch + " --> Octal and Radix = 8");
-            }
-
-            else
-            {
-                System.out.println(ch + " --> Not Octal");
+                System.out.println(ch + " --> Not Decimal");
             }
         }
     }

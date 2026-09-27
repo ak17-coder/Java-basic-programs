@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Octal
+public class Hexadecimal
 {
     public static void main(String[] args)
     {
@@ -8,30 +8,30 @@ public class Octal
         System.out.println("Enter a number");
         String num = sc.next(); // 127 is a word.
 
-        boolean octal = false; // assume that number is octal.
+        boolean hexadecimal = true; // assume that number is octal.
 
         for(int i = 0; i <= num.length() - 1; i++)
         {
 
             char ch = num.charAt(i);
-            if(ch >= '0' && ch <= '7')
+            if((ch < '0' || ch > '9') && (ch < 'A' || ch > 'F'))
             {
-                octal = true;
+                hexadecimal = false;
             }
 
             else
             {
-                octal = false;
+                hexadecimal = true;
             }
 
-            if(octal)
+            if(hexadecimal)
             {
-                System.out.println(ch + " --> Octal and Radix = 8");
+                System.out.println(ch + " --> Hexadecimal and Radix = 16");
             }
 
             else
             {
-                System.out.println(ch + " --> Not Octal");
+                System.out.println(ch + " --> Not Hexadecimal");
             }
         }
     }
