@@ -1,5 +1,106 @@
 class SinglyLinkedList
 {
+    public static void testAtStart()
+    {
+        // 1)No data
+        System.out.println("\nNo data-inserting at beginning");
+        Node head = null;
+        printList(head);
+
+        System.out.println();
+
+        // 2) With Single data
+        // Function Invocation.
+        System.out.println("\nSingle data-inserting at beginning");
+        head = insertAtStart(100, head);
+        printList(head);
+
+        System.out.println();
+
+        // 3) With Multiple data
+        System.out.println("\nMultiple data-inserting at beginning");
+        head = insertAtStart(100, head);
+        head = insertAtStart(101, head);
+        head = insertAtStart(102, head);
+        head = insertAtStart(103, head);
+        head = insertAtStart(104, head);
+        printList(head);
+
+        System.out.println();
+    }
+
+    public static void testAtEnd()
+    {
+        System.out.println("\nNo data-inserting at end");
+
+        Node last = null;
+        printList(last);
+
+        System.out.println();
+
+        System.out.println("\nSingle data-inserting at end");
+        last = insertAtEnd(100, last);
+        printList(last);
+
+        System.out.println();
+
+        System.out.println("\nMultiple data-inserting at end");
+        last = insertAtEnd(500, last);
+        last = insertAtEnd(100, last);
+        last = insertAtEnd(101, last);
+        last = insertAtEnd(103, last);
+        last = insertAtEnd(104, last);
+        printList(last);
+    }
+
+    public static void testAtKey()
+    {
+        Node head = null;
+
+        head = insertAtStart(100, head);
+        head = insertAtStart(101, head);
+        head = insertAtStart(102, head);
+        head = insertAtStart(103, head);
+        head = insertAtStart(104, head);
+        // printList(head);
+
+        Node middle = null;
+        insertAfterKey(head, 101, 105);
+        // printList(middle);
+
+    }
+
+    public static void insertAfterKey(Node head, int key, int value)
+    {
+        Node newNode = new Node();
+        newNode.data = value;
+        newNode.next = null;
+
+        if(head == null)
+            return;
+        else if(head.data == key)
+        {
+            head.next = newNode;
+            return;
+        }
+
+        Node keyNode = head;
+
+        while(keyNode != null && keyNode.data != key)
+        {
+            keyNode = keyNode.next;
+        }
+
+        if(keyNode == null)
+        {
+            return;
+        }
+
+        newNode.next = keyNode.next;
+        keyNode.next = newNode;
+        printList(keyNode);
+    }
+
     public static void printList(Node head)
     {
         Node temp = head;
@@ -36,62 +137,41 @@ class SinglyLinkedList
         }
     }
 
-    public static Node insertAtEnd(int value, Node currentHead)
+    public static Node insertAtEnd(int value, Node head)
     {
         Node lastNode = new Node();
         lastNode.data = value;
         lastNode.next = null;
 
-        Node temp = currentHead;
-        if(currentHead == null)
+        Node currentLastNode = head;
+
+        if(head == null)
         {
             return lastNode;
         }
 
         else
         {
-            while(temp.next != null)
+            while(currentLastNode.next != null)
             {
-                temp = temp.next;
+                currentLastNode = currentLastNode.next;
             }
-            temp.next = lastNode;
         }
-        return lastNode;
+
+        currentLastNode.next = lastNode;
+        return head;
     }
 
 
     public static void main(String[] args)
     {
-        // 1)No data
-        Node head = null;
-        printList(head);
+        // System.out.println("Cases of Inserting at beginning");
+        // testAtStart();
 
-        System.out.println();
+        // System.out.println("Cases of Inserting at end");
+        // testAtEnd();
 
-        // 2) With Single data
-        // Function Invocation.
-        head = insertAtStart(100, head);
-        printList(head);
-
-        System.out.println();
-
-        // 3) With Multiple data
-        head = insertAtStart(100, head);
-        head = insertAtStart(101, head);
-        head = insertAtStart(102, head);
-        head = insertAtStart(103, head);
-        head = insertAtStart(104, head);
-        printList(head);
-
-        System.out.println();
-
-        head = insertAtEnd(500, head);
-        head = insertAtEnd(100, head);
-        head = insertAtEnd(101, head);
-        head = insertAtEnd(102, head);
-        head = insertAtEnd(103, head);
-        head = insertAtEnd(104, head);
-        printList(head);
-
+        System.out.println("Cases of Inserting after the given key");
+        testAtKey();
     }
 }
