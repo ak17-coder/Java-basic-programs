@@ -1,5 +1,126 @@
 class SinglyLinkedList
 {
+    public static void testDeleteOperations()
+    {
+        Node head = null;
+
+        // Test 1)No node
+        head = deleteAtAnyPosition(head, 1);
+        printList(head);
+
+        // Test 2 ) Single node, key present
+        head = insertAtEnd(1, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 1);
+        printList(head);
+
+        // Test 3) Single node, key not present
+        head = insertAtEnd(1, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 2);
+        printList(head);
+
+        // Test 4) Two nodes, key firt node
+        head = insertAtEnd(2, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 1);
+        printList(head);
+
+        // Test 5) Two node, key second node
+        head = insertAtEnd(3, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 3);
+        printList(head);
+
+        // Test 6) Two node, key not present
+        head = insertAtEnd(3, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 5);
+        printList(head);
+
+        // Test 7) 3 or 4 nodes, key present middle
+        head = insertAtEnd(4, head);
+        head = insertAtEnd(5, head);
+        head = insertAtEnd(6, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 4);
+        printList(head);
+
+        // Test 8) 3 or 4 nodes, key present at last
+        head = deleteAtAnyPosition(head, 6);
+        head = insertAtEnd(6, head);
+        head = insertAtEnd(7, head);
+        printList(head);
+        System.out.println();
+        head = deleteAtAnyPosition(head, 7);
+        printList(head);
+
+
+
+    }
+
+
+
+
+    public static Node deleteAtStart(Node head)
+    {
+        if(head == null)
+        {
+            return null;
+        }
+        return head.next;
+    }
+
+    public static Node deleteAtAnyPosition(Node head, int key)
+    {
+        System.out.println("Delete key node,key value = " + key);
+        // List is empty
+        if(head == null)
+            return null;
+
+        // First node value is key
+        if(head.data == key)
+            return head.next;
+        else if(head.next == null)
+            return head;
+
+        Node keyNode = head.next;
+        Node prevNode = head;
+        while(keyNode != null)
+        {
+            if(keyNode.data == key)
+                break;
+            prevNode = keyNode;
+            keyNode = keyNode.next;
+        }
+        if(keyNode != null && keyNode.data == key)
+            prevNode.next = keyNode.next;
+        return head;
+
+
+    }
+    public static Node deleteAtEnd(Node head)
+    {
+        if(head == null || head.next == null)
+        {
+            return null;
+        }
+        Node lastButOne = head;
+        while(lastButOne.next.next != null)
+        {
+            lastButOne = lastButOne.next;
+        }
+        lastButOne.next = null;
+
+        return head;
+
+    }
     public static void testAtStart()
     {
         // 1)No data
@@ -171,7 +292,14 @@ class SinglyLinkedList
         // System.out.println("Cases of Inserting at end");
         // testAtEnd();
 
-        System.out.println("Cases of Inserting after the given key");
-        testAtKey();
+        // System.out.println("Cases of Inserting after the given key");
+        // testAtKey();
+
+        // System.out.println("Cases of deleting at start");
+        testDeleteOperations();
+
+
+
+
     }
 }
