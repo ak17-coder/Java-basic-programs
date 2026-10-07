@@ -1,26 +1,22 @@
-
-public class LinearSearch {
-
-    boolean isPresent(int[] arr, int key)
+public class LinearSearch
+{
+    public static int linearSearch(int arr[], int target)
     {
-        for (int x : arr)
+        if(arr == null || arr.length == 0)
+            return -1;
+
+        for(int i = 0; i < arr.length; i++)
         {
-            if (x == key)
-                return true;
-
-            // Error if is inside else
-            // else
-            //     return  false;
+            if(arr[i] == target)
+                return i;
         }
-        return false;
+        return -1;
     }
-
     public static void main(String[] args)
     {
-        LinearSearch l = new LinearSearch();
-        int[] arr = {10, 20, 30, 40};
-        System.out.println(l.isPresent(arr, 30));
-        System.out.println(l.isPresent(arr, 100));
-
+        int arr[] = {10, 20, 30, 40, 50};
+        int target = 30;
+        int index = linearSearch(arr, target);
+        System.out.println(index);
     }
 }
