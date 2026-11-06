@@ -1,30 +1,24 @@
-import java.util.Scanner;
+public class Palindrome
+{
+    public static boolean checkPalindrome(char ch[])
+    {
+        int start = 0;
+        int end = ch.length - 1;
 
-class Palindrome {
+        while(start < end)
+        {
+            if(ch[start] != ch[end])
+                return false;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number: ");
-        // int num = sc.nextInt();
-        String num = sc.next();
-        String original = num;
-        String res = "";
-
-        System.out.print(num.length());
-
-        for (int i = num.length() - 1; i >= 0; i--) {
-            res = res + num.charAt(i);
+            start++;
+            end--;
         }
-
-        if (original.equals(res)) {
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Not Palindrome");
-        }
-
-        String s1 = "121";
-        String s2 = "120";
-        System.out.println(s1 == s2);
+        return true;
     }
-
+    public static void main(String[] args)
+    {
+        char ch[] = {'m', 'a', 'd', 'a'};
+        boolean res = checkPalindrome(ch);
+        System.out.println(res);
+    }
 }

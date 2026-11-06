@@ -1,18 +1,22 @@
 public class SumOfDigits
 {
-    public static int sumOfDigits(int n)
+    public static int getGradeCount(char ch[], int key)
     {
-        if(n == 0)
+        int sum = 0;
+        for(char c : ch)
         {
-            return 0;
+            if(c >= '0' && c <= '9')
+            {
+                // int a = (int)c - '0';
+                sum = sum + c - '0';
+            }
         }
-
-        return (n % 10) + sumOfDigits(n / 10);
+        return sum;
     }
-
     public static void main(String[] args)
     {
-        int s = sumOfDigits(123);
-        System.out.println(s);
+        char ch[] = {'A', '8', '1', '2'};
+        int res = getGradeCount(ch, 'A');
+        System.out.println(res);
     }
 }
